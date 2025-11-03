@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Welcome to Our Party!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* WELCOME SCREEN */
+        .welcome-screen {
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+            margin-top: 100px;
+        }
+
+        .welcome-screen.hide {
+            display: none;
+        }
+
+        .welcome-emoji {
+            font-size: 5em;
+            animation: bounce 2s infinite;
+            margin-bottom: 20px;
+        }
+
+        .welcome-title {
+            color: white;
+            font-size: 2.5em;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+            animation: slideDownBig 1s ease-out;
+        }
+
+        .welcome-subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            animation: slideUpBig 1s ease-out 0.3s both;
+        }
+
+        .welcome-button {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.1em;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            animation: scaleInButton 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s both;
+        }
+
+        .welcome-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 60px rgba(0,0,0,0.3);
+        }
+
+        .welcome-button:active {
+            transform: translateY(-2px);
+        }
+
+        /* MAIN SCREEN */
+        .main-screen {
+            display: none;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .main-screen.show {
+            display: block;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        .search-box {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .search-label {
+            display: block;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .search-box input::placeholder {
+            color: #ccc;
+        }
+
+        /* RESULT SCREEN */
+        .result-screen {
+            display: none;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .result-screen.show {
+            display: block;
+        }
+
+        .back-button {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            width: 100%;
+        }
+
+        .back-button:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .welcome-banner {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            animation: scaleInBounce 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.3) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .welcome-text {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: slideInDown 0.6s ease-out 0.2s both;
+            position: relative;
+            z-index: 1;
+        }
+
+        .guest-name {
+            font-size: 2.2em;
+            font-weight: 900;
+            margin: 20px 0;
+            animation: scaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+        }
+
+        .table-display {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        .table-label {
+            color: #667eea;
+            font-size: 0.95em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .table-number {
+            font-size: 4.5em;
+            font-weight: 900;
+            color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 20px 0;
+            animation: scaleInBounce 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s both;
+        }
+
+        .table-info {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-out 1s both;
+        }
+
+        /* CAKES & DECORATIONS */
+        .cakes-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .cake {
+            font-size: 3em;
+            animation: bounce 2s infinite;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+        }
+
+        .cake:nth-child(1) { animation-delay: 0s; }
+        .cake:nth-child(2) { animation-delay: 0.3s; }
+        .cake:nth-child(3) { animation-delay: 0.6s; }
+
+        .balloons-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            pointer-events: none;
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .balloon {
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            border-radius: 50% 50% 50% 0;
+            opacity: 0.8;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .balloon1 { background: #ff6b6b; left: 10%; animation-delay: 0s; }
+        .balloon2 { background: #4ecdc4; left: 30%; animation-delay: 1s; }
+        .balloon3 { background: #ffe66d; left: 50%; animation-delay: 2s; }
+        .balloon4 { background: #ff6b6b; left: 70%; animation-delay: 0.5s; }
+        .balloon5 { background: #4ecdc4; left: 90%; animation-delay: 1.5s; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes slideDownBig {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUpBig {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes scaleInBounce {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes scaleInButton {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.8; }
+            50% { transform: translateY(-80px) translateX(20px); opacity: 1; }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #667eea;
+            pointer-events: none;
+            animation: confettiFall 3s ease-in forwards;
+        }
+
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .not-found {
+            background: linear-gradient(135deg, #ffa751 0%, #ffe259 100%);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            animation: slideUp 0.8s ease-out;
+            color: white;
+        }
+
+        .not-found h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .not-found p {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 480px) {
+            .welcome-title {
+                font-size: 2em;
+            }
+
+            .table-number {
+                font-size: 3.5em;
+            }
+
+            .welcome-emoji {
+                font-size: 4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="balloons-top">
+        <div class="balloon balloon1"></div>
+        <div class="balloon balloon2"></div>
+        <div class="balloon balloon3"></div>
+        <div class="balloon balloon4"></div>
+        <div class="balloon balloon5"></div>
+    </div>
+
+    <div class="container">
+        <!-- WELCOME SCREEN -->
+        <div class="welcome-screen" id="welcomeScreen">
+            <div class="welcome-emoji">🎉</div>
+            <h1 class="welcome-title">WELCOME!</h1>
+            <p class="welcome-subtitle">To Our Amazing Party 🎊</p>
+            <button class="welcome-button" onclick="startParty()">Let's Go! 🚀</button>
+        </div>
+
+        <!-- MAIN SCREEN -->
+        <div class="main-screen" id="mainScreen">
+            <div class="header">
+                <h1>🎈 Find Your Table</h1>
+                <p>Enter your name to get started</p>
+            </div>
+
+            <div class="search-box">
+                <label class="search-label">👤 What's Your Name?</label>
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Type your name..." 
+                    autocomplete="off"
+                    oninput="searchTable()"
+                >
+            </div>
+
+            <div class="cakes-container">
+                <div class="cake">🍰</div>
+                <div class="cake">🎂</div>
+                <div class="cake">🧁</div>
+            </div>
+        </div>
+
+        <!-- RESULT SCREEN -->
+        <div class="result-screen" id="resultScreen">
+            <button class="back-button" onclick="goBack()">← Back to Search</button>
+
+            <div id="resultContent"></div>
+
+            <div class="cakes-container">
+                <div class="cake">🍰</div>
+                <div class="cake">🎂</div>
+                <div class="cake">🧁</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tablesData = [
+            { 
+                number: 1, 
+                guests: 10, 
+                description: "Kasun, Bryan, Rajitha, Vinodya, Madushanka, Roshan, Dharmasiri, Madhavi, Tashima, Nimal, Sajith", 
+                names: ["kasun", "bryan", "rajitha", "vinodya", "madushanka", "roshan", "dharmasiri", "madhavi", "tashima", "nimal", "sajith"] 
+            },
+            { 
+                number: 2, 
+                guests: 38, 
+                description: "Others of Methullanka and MLA (They can decide)", 
+                names: [] 
+            },
+            { 
+                number: 6, 
+                guests: 10, 
+                description: "Organized Family and Binu Family", 
+                names: ["organized", "binu"] 
+            },
+            { 
+                number: 7, 
+                guests: 9, 
+                description: "Lalith Family and Sanjeewa Family", 
+                names: ["lalith", "sanjeewa"] 
+            },
+            { 
+                number: 8, 
+                guests: 8, 
+                description: "Upul and Asela Family", 
+                names: ["upul", "asela"] 
+            },
+            { 
+                number: 9, 
+                guests: 10, 
+                description: "Priyantha Family, Sudesh Family, Padma Family", 
+                names: ["priyantha", "sudesh", "padma"] 
+            },
+            { 
+                number: 10, 
+                guests: 8, 
+                description: "Janaka Family and Mahinda Family", 
+                names: ["janaka", "mahinda"] 
+            },
+            { 
+                number: 11, 
+                guests: 8, 
+                description: "Pushpe Family and Mahinda Family", 
+                names: ["pushpe", "mahinda"] 
+            },
+            { 
+                number: 12, 
+                guests: 7, 
+                description: "Nishantha Family, Kodagoda, Lecture Sir, Kaluwa", 
+                names: ["nishantha", "kodagoda", "lecture", "sir", "kaluwa"] 
+            },
+            { 
+                number: 13, 
+                guests: 9, 
+                description: "Duminda, Susantha, Pala, Priyantha, Upathissa, Nafeel, Paran, Rajasekara and Son", 
+                names: ["duminda", "susantha", "pala", "upathissa", "nafeel", "paran", "rajasekara"] 
+            },
+            { 
+                number: 14, 
+                guests: 8, 
+                description: "Dilan Family and Methum Family", 
+                names: ["dilan", "methum"] 
+            },
+            { 
+                number: 15, 
+                guests: 10, 
+                description: "Ten Bihandu's Friends", 
+                names: ["bihandu"] 
+            },
+            { 
+                number: 16, 
+                guests: 9, 
+                description: "Methum Family and Bihandu's Five Friends, Levindu", 
+                names: ["levindu"] 
+            }
+        ];
+
+        function startParty() {
+            document.getElementById('welcomeScreen').classList.add('hide');
+            document.getElementById('mainScreen').classList.add('show');
+        }
+
+        let searchTimeout;
+
+        function searchTable() {
+            clearTimeout(searchTimeout);
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            if (searchTerm.length < 2) {
+                return;
+            }
+
+            searchTimeout = setTimeout(() => {
+                const found = tablesData.find(table => 
+                    table.names.some(name => name.includes(searchTerm))
+                );
+
+                if (found) {
+                    showResult(found, searchTerm);
+                } else {
+                    showNotFound(searchTerm);
+                }
+            }, 300);
+        }
+
+        function showResult(table, name) {
+            document.getElementById('mainScreen').classList.remove('show');
+            document.getElementById('resultScreen').classList.add('show');
+
+            const resultContent = document.getElementById('resultContent');
+            resultContent.innerHTML = `
+                <div class="welcome-banner">
+                    <div class="welcome-text">🎉 WELCOME TO THE PARTY! 🎉</div>
+                    <div class="guest-name">${name.toUpperCase()}</div>
+                </div>
+
+                <div class="table-display">
+                    <div class="table-label">YOUR TABLE NUMBER IS</div>
+                    <div class="table-number">${table.number}</div>
+                    <div class="table-info">
+                        <strong>${table.guests} Guests</strong><br><br>
+                        ${table.description}
+                    </div>
+                </div>
+            `;
+
+            createConfetti();
+        }
+
+        function showNotFound(searchTerm) {
+            document.getElementById('mainScreen').classList.remove('show');
+            document.getElementById('resultScreen').classList.add('show');
+
+            const resultContent = document.getElementById('resultContent');
+            resultContent.innerHTML = `
+                <div class="not-found">
+                    <h2>Hmm... 🤔</h2>
+                    <p>We couldn't find "<strong>${searchTerm}</strong>" on the guest list</p>
+                    <p>Try typing a different name!</p>
+                </div>
+            `;
+        }
+
+        function goBack() {
+            document.getElementById('resultScreen').classList.remove('show');
+            document.getElementById('mainScreen').classList.add('show');
+            document.getElementById('searchInput').value = '';
+        }
+
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.style.background = ['#667eea', '#764ba2', '#ff6b6b', '#43e97b', '#ffa751', '#4ecdc4'][Math.floor(Math.random() * 6)];
+                confetti.style.delay = Math.random() * 0.5 + 's';
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 3500);
+            }
+        }
+    </script>
+</body>
+</html>
