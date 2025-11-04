@@ -24,7 +24,6 @@
             margin: 0 auto;
         }
 
-        /* WELCOME SCREEN */
         .welcome-screen {
             text-align: center;
             animation: fadeIn 1s ease-out;
@@ -76,11 +75,6 @@
             box-shadow: 0 15px 60px rgba(0,0,0,0.3);
         }
 
-        .welcome-button:active {
-            transform: translateY(-2px);
-        }
-
-        /* MAIN SCREEN */
         .main-screen {
             display: none;
             animation: fadeIn 0.8s ease-out;
@@ -112,7 +106,7 @@
             background: white;
             border-radius: 20px;
             padding: 25px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             box-shadow: 0 15px 50px rgba(0,0,0,0.2);
             animation: slideUp 0.8s ease-out;
         }
@@ -141,11 +135,33 @@
             box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
         }
 
-        .search-box input::placeholder {
-            color: #ccc;
+        .search-suggestions {
+            margin-top: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
         }
 
-        /* RESULT SCREEN */
+        .search-suggestions.show {
+            display: block;
+        }
+
+        .suggestion-item {
+            background: #f5f5f5;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        .suggestion-item:hover {
+            background: #667eea;
+            color: white;
+        }
+
         .result-screen {
             display: none;
             animation: fadeIn 0.8s ease-out;
@@ -187,17 +203,6 @@
             overflow: hidden;
         }
 
-        .welcome-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.3) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
         .welcome-text {
             font-size: 1.3em;
             font-weight: 700;
@@ -237,7 +242,6 @@
         .table-number {
             font-size: 4.5em;
             font-weight: 900;
-            color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -254,7 +258,32 @@
             animation: fadeIn 1s ease-out 1s both;
         }
 
-        /* CAKES & DECORATIONS */
+        .special-role {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            animation: scaleInBounce 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            color: white;
+        }
+
+        .special-role h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .role-badge {
+            background: rgba(255,255,255,0.3);
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin: 20px 0;
+            display: inline-block;
+        }
+
         .cakes-container {
             display: flex;
             justify-content: space-around;
@@ -297,6 +326,106 @@
         .balloon3 { background: #ffe66d; left: 50%; animation-delay: 2s; }
         .balloon4 { background: #ff6b6b; left: 70%; animation-delay: 0.5s; }
         .balloon5 { background: #4ecdc4; left: 90%; animation-delay: 1.5s; }
+
+        .not-found {
+            background: linear-gradient(135deg, #ffa751 0%, #ffe259 100%);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            animation: slideUp 0.8s ease-out;
+            color: white;
+        }
+
+        .not-found h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .footer-note {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            margin-top: 50px;
+            display: none;
+        }
+
+        .footer-note.show {
+            display: block;
+            animation: slideUpFooter 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes slideUpFooter {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer-title {
+            font-size: 1.3em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-align: center;
+            animation: fadeInDown 0.8s ease-out 0.3s both;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            font-size: 0.9em;
+            letter-spacing: 2px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            animation: fadeIn 0.8s ease-out 0.5s both;
+        }
+
+        .footer-contact {
+            background: rgba(255,255,255,0.15);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.3);
+            animation: scaleInFooter 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s both;
+        }
+
+        .footer-contact-help {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+            animation: slideInDown 0.6s ease-out 0.8s both;
+        }
+
+        .footer-contact-name {
+            font-size: 1.4em;
+            font-weight: 900;
+            margin: 10px 0;
+            animation: scaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 1s both;
+        }
+
+        .footer-contact-role {
+            font-size: 0.85em;
+            opacity: 0.85;
+            animation: fadeIn 0.8s ease-out 1.2s both;
+        }
+
+        @keyframes scaleInFooter {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
 
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
@@ -420,27 +549,6 @@
             }
         }
 
-        .not-found {
-            background: linear-gradient(135deg, #ffa751 0%, #ffe259 100%);
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-            animation: slideUp 0.8s ease-out;
-            color: white;
-        }
-
-        .not-found h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        .not-found p {
-            font-size: 1em;
-            margin-bottom: 10px;
-        }
-
         @media (max-width: 480px) {
             .welcome-title {
                 font-size: 2em;
@@ -490,6 +598,7 @@
                     autocomplete="off"
                     oninput="searchTable()"
                 >
+                <div class="search-suggestions" id="suggestions"></div>
             </div>
 
             <div class="cakes-container">
@@ -511,6 +620,18 @@
                 <div class="cake">🧁</div>
             </div>
         </div>
+
+        <!-- FOOTER - APPEARS AT THE END -->
+        <div class="footer-note" id="footer">
+            <div class="footer-title">🏢 METHUL LANKA APPARELS (PVT) LTD</div>
+            <div class="footer-copyright"><strong>© ALL RIGHTS RESERVED</strong></div>
+            
+            <div class="footer-contact">
+                <div class="footer-contact-help">Need Help? Connect with us:</div>
+                <div class="footer-contact-name">👤 HIRUSHA</div>
+                <div class="footer-contact-role"><em>HR & Admin Coordinator</em></div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -518,86 +639,143 @@
             { 
                 number: 1, 
                 guests: 10, 
+                company: "Main Table",
                 description: "Kasun, Bryan, Rajitha, Vinodya, Madushanka, Roshan, Dharmasiri, Madhavi, Tashima, Nimal, Sajith", 
                 names: ["kasun", "bryan", "rajitha", "vinodya", "madushanka", "roshan", "dharmasiri", "madhavi", "tashima", "nimal", "sajith"] 
             },
             { 
                 number: 2, 
-                guests: 38, 
-                description: "Others of Methullanka and MLA (They can decide)", 
-                names: [] 
+                guests: 10, 
+                company: "Methullanka & MLA",
+                description: "Indunil, Sanjeewa Office, Nalaka, Kumudu, Pradeep, Shakila, Hemantha, Dulanja, Dinoth, Chanuka", 
+                names: ["indunil", "sanjeewa", "nalaka", "kumudu", "pradeep", "shakila", "hemantha", "dulanja", "dinoth", "chanuka"] 
+            },
+            { 
+                number: 3, 
+                guests: 10, 
+                company: "Methullanka & MLA",
+                description: "Nilanga, Neel, Kasun Dilhara, Jayan, Kaveesha, Pavan, Sadisha, Shasheer, K. Priyantha, Sirilal", 
+                names: ["nilanga", "neel", "kasun dilhara", "jayan", "kaveesha", "pavan", "sadisha", "shasheer", "priyantha", "sirilal"] 
+            },
+            { 
+                number: 4, 
+                guests: 10, 
+                company: "Methullanka & MLA",
+                description: "Manjula, Kaldera, Thushara, Gilbert, Ranjith, Lakshitha, Naveen, Kaduwela, Dampe Team", 
+                names: ["manjula", "kaldera", "thushara", "gilbert", "ranjith", "lakshitha", "naveen", "kaduwela", "dampe"] 
+            },
+            { 
+                number: 5, 
+                guests: 6, 
+                company: "MLA Manufacturing",
+                description: "Kaduwela Team (3) & Dampe Team (3) - Manufacturing Partners", 
+                names: ["kaduwela", "dampe", "mla"] 
             },
             { 
                 number: 6, 
                 guests: 10, 
+                company: "Family Table",
                 description: "Organized Family and Binu Family", 
                 names: ["organized", "binu"] 
             },
             { 
                 number: 7, 
                 guests: 9, 
+                company: "Family Table",
                 description: "Lalith Family and Sanjeewa Family", 
                 names: ["lalith", "sanjeewa"] 
             },
             { 
                 number: 8, 
                 guests: 8, 
+                company: "Family Table",
                 description: "Upul and Asela Family", 
                 names: ["upul", "asela"] 
             },
             { 
                 number: 9, 
                 guests: 10, 
+                company: "Family Table",
                 description: "Priyantha Family, Sudesh Family, Padma Family", 
                 names: ["priyantha", "sudesh", "padma"] 
             },
             { 
                 number: 10, 
                 guests: 8, 
+                company: "Family Table",
                 description: "Janaka Family and Mahinda Family", 
                 names: ["janaka", "mahinda"] 
             },
             { 
                 number: 11, 
                 guests: 8, 
+                company: "Family Table",
                 description: "Pushpe Family and Mahinda Family", 
                 names: ["pushpe", "mahinda"] 
             },
             { 
                 number: 12, 
                 guests: 7, 
+                company: "Mixed Group",
                 description: "Nishantha Family, Kodagoda, Lecture Sir, Kaluwa", 
                 names: ["nishantha", "kodagoda", "lecture", "sir", "kaluwa"] 
             },
             { 
                 number: 13, 
                 guests: 9, 
+                company: "Mixed Group",
                 description: "Duminda, Susantha, Pala, Priyantha, Upathissa, Nafeel, Paran, Rajasekara and Son", 
                 names: ["duminda", "susantha", "pala", "upathissa", "nafeel", "paran", "rajasekara"] 
             },
             { 
                 number: 14, 
                 guests: 8, 
+                company: "Family Table",
                 description: "Dilan Family and Methum Family", 
                 names: ["dilan", "methum"] 
             },
             { 
                 number: 15, 
                 guests: 10, 
+                company: "Friends Group",
                 description: "Ten Bihandu's Friends", 
                 names: ["bihandu"] 
             },
             { 
                 number: 16, 
                 guests: 9, 
+                company: "Friends Group",
                 description: "Methum Family and Bihandu's Five Friends, Levindu", 
                 names: ["levindu"] 
+            }
+        ];
+
+        const specialRoles = [
+            {
+                name: "ananda",
+                role: "🎤 BAR ADMIN",
+                description: "Bar Coordinator - Event Management",
+                color: "#ff6b6b"
+            },
+            {
+                name: "hashan",
+                role: "📋 COORDINATOR",
+                table: 2,
+                description: "Event Coordinator & Assistant",
+                color: "#ff9800"
+            },
+            {
+                name: "hirusha",
+                role: "👥 HR & ADMIN",
+                description: "Human Resources & General Admin",
+                color: "#4caf50"
             }
         ];
 
         function startParty() {
             document.getElementById('welcomeScreen').classList.add('hide');
             document.getElementById('mainScreen').classList.add('show');
+            document.getElementById('searchInput').focus();
         }
 
         let searchTimeout;
@@ -605,22 +783,74 @@
         function searchTable() {
             clearTimeout(searchTimeout);
             const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            const suggestionsDiv = document.getElementById('suggestions');
             
-            if (searchTerm.length < 2) {
+            if (searchTerm.length < 1) {
+                suggestionsDiv.classList.remove('show');
                 return;
             }
 
             searchTimeout = setTimeout(() => {
-                const found = tablesData.find(table => 
-                    table.names.some(name => name.includes(searchTerm))
+                const allNames = [];
+                
+                // Collect from tables
+                tablesData.forEach(table => {
+                    table.names.forEach(name => {
+                        allNames.push({ name, type: 'table', data: table });
+                    });
+                });
+
+                // Collect from special roles
+                specialRoles.forEach(role => {
+                    allNames.push({ name: role.name, type: 'role', data: role });
+                });
+
+                // Filter suggestions
+                const suggestions = allNames.filter(item => 
+                    item.name.includes(searchTerm)
                 );
 
-                if (found) {
-                    showResult(found, searchTerm);
+                if (suggestions.length > 0) {
+                    showSuggestions(suggestions, searchTerm);
                 } else {
-                    showNotFound(searchTerm);
+                    suggestionsDiv.classList.remove('show');
                 }
-            }, 300);
+
+                // Auto-select if exact match
+                if (searchTerm.length >= 2) {
+                    const exactMatch = allNames.find(item => item.name === searchTerm);
+                    if (exactMatch) {
+                        setTimeout(() => selectSuggestion(exactMatch), 100);
+                    }
+                }
+            }, 200);
+        }
+
+        function showSuggestions(suggestions, searchTerm) {
+            const suggestionsDiv = document.getElementById('suggestions');
+            suggestionsDiv.innerHTML = '';
+            
+            suggestions.slice(0, 5).forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'suggestion-item';
+                const displayName = item.name.charAt(0).toUpperCase() + item.name.slice(1);
+                div.textContent = displayName;
+                div.onclick = () => selectSuggestion(item);
+                suggestionsDiv.appendChild(div);
+            });
+            
+            suggestionsDiv.classList.add('show');
+        }
+
+        function selectSuggestion(item) {
+            document.getElementById('searchInput').value = item.name.charAt(0).toUpperCase() + item.name.slice(1);
+            document.getElementById('suggestions').classList.remove('show');
+            
+            if (item.type === 'table') {
+                showResult(item.data, item.name);
+            } else if (item.type === 'role') {
+                showSpecialRole(item.data, item.name);
+            }
         }
 
         function showResult(table, name) {
@@ -638,6 +868,7 @@
                     <div class="table-label">YOUR TABLE NUMBER IS</div>
                     <div class="table-number">${table.number}</div>
                     <div class="table-info">
+                        <strong>📍 ${table.company}</strong><br><br>
                         <strong>${table.guests} Guests</strong><br><br>
                         ${table.description}
                     </div>
@@ -645,26 +876,45 @@
             `;
 
             createConfetti();
+            
+            // Show footer with delay
+            setTimeout(() => {
+                document.getElementById('footer').classList.add('show');
+            }, 1500);
         }
 
-        function showNotFound(searchTerm) {
+        function showSpecialRole(role, name) {
             document.getElementById('mainScreen').classList.remove('show');
             document.getElementById('resultScreen').classList.add('show');
 
             const resultContent = document.getElementById('resultContent');
-            resultContent.innerHTML = `
-                <div class="not-found">
-                    <h2>Hmm... 🤔</h2>
-                    <p>We couldn't find "<strong>${searchTerm}</strong>" on the guest list</p>
-                    <p>Try typing a different name!</p>
+            let roleHtml = `
+                <div class="special-role">
+                    <h2>${name.toUpperCase()}</h2>
+                    <div class="role-badge">${role.role}</div>
+                    <div class="table-info" style="color: white;">
+                        ${role.description}<br><br>
+                        ${role.table ? `<strong>Primary Table: ${role.table}</strong>` : '<strong>Administrative Role</strong>'}
+                    </div>
                 </div>
             `;
+
+            resultContent.innerHTML = roleHtml;
+            createConfetti();
+            
+            // Show footer with delay
+            setTimeout(() => {
+                document.getElementById('footer').classList.add('show');
+            }, 1500);
         }
 
         function goBack() {
             document.getElementById('resultScreen').classList.remove('show');
             document.getElementById('mainScreen').classList.add('show');
             document.getElementById('searchInput').value = '';
+            document.getElementById('suggestions').classList.remove('show');
+            document.getElementById('footer').classList.remove('show');
+            document.getElementById('searchInput').focus();
         }
 
         function createConfetti() {
