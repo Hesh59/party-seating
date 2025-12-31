@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎉 Thank You For Coming!</title>
+    <title>🎉 Happy New Year 2026 - Employees Party</title>
     <style>
         * {
             margin: 0;
@@ -12,334 +12,379 @@
         }
 
         body {
-            font-family: 'Playfair Display', 'Georgia', serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0047AB 0%, #00A8E8 50%, #0047AB 100%);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             padding: 20px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .sparkles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 2;
-        }
-
-        .sparkle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #d4af37;
-            border-radius: 50%;
-            animation: twinkle 3s infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 550px;
-            width: 100%;
-            position: relative;
-            z-index: 10;
-            height: 90vh;
-            overflow-y: auto;
-            overflow-x: hidden;
-            padding: 0 5px;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
-        .container::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .container::-webkit-scrollbar-track {
-            background: rgba(212, 175, 55, 0.1);
-            border-radius: 10px;
-        }
-
-        .container::-webkit-scrollbar-thumb {
-            background: rgba(212, 175, 55, 0.5);
-            border-radius: 10px;
-        }
-
-        .container::-webkit-scrollbar-thumb:hover {
-            background: rgba(212, 175, 55, 0.8);
-        }
-
-        .main-card {
-            background: linear-gradient(135deg, #1f1f1f 0%, #2a2a2a 100%);
-            border-radius: 20px;
-            padding: 70px 50px;
+        /* WELCOME SCREEN */
+        .welcome-screen {
             text-align: center;
-            box-shadow: 
-                0 25px 60px rgba(0,0,0,0.5),
-                inset 0 1px 0 rgba(212, 175, 55, 0.3),
-                0 0 40px rgba(212, 175, 55, 0.1);
-            animation: slideUpCard 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            position: relative;
-            overflow: hidden;
+            animation: fadeIn 1s ease-out;
         }
 
-        .main-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        .welcome-screen.hide {
+            display: none;
         }
 
-        .main-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #d4af37, transparent);
-        }
-
-        .emoji-large {
+        .welcome-emoji {
             font-size: 5em;
-            margin-bottom: 25px;
-            animation: bounce 2.5s ease-in-out infinite;
-            filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.3));
+            animation: bounce 2s infinite;
+            margin: 20px 0;
         }
 
-        .decorative-line {
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #d4af37, transparent);
-            margin: 0 auto 20px;
-            animation: slideInWidth 1s ease-out 0.2s both;
-        }
-
-        .thank-you {
-            font-size: 3.5em;
+        .welcome-title {
+            color: white;
+            font-size: 2.5em;
             font-weight: 900;
-            color: #d4af37;
-            margin-bottom: 10px;
-            animation: slideDownText 1.2s ease-out 0.4s both;
-            letter-spacing: 3px;
-            text-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+            margin: 15px 0;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+            animation: slideDownBig 1s ease-out;
         }
 
-        .subtitle {
+        .welcome-subtitle {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            animation: slideUpBig 1s ease-out 0.3s both;
+        }
+
+        .welcome-button {
+            background: white;
+            color: #0047AB;
+            border: none;
+            padding: 18px 40px;
             font-size: 1.1em;
-            color: #b8b8b8;
-            margin-bottom: 35px;
-            animation: fadeIn 1.2s ease-out 0.6s both;
-            font-weight: 300;
-            letter-spacing: 2px;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            animation: scaleInButton 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s both;
         }
 
-        .coming-text {
-            font-size: 2.8em;
+        .welcome-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 60px rgba(0,0,0,0.3);
+        }
+
+        /* MAIN SCREEN */
+        .main-screen {
+            display: none;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .main-screen.show {
+            display: block;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+        .search-box {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .search-label {
+            display: block;
+            color: #0047AB;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #0047AB;
+            box-shadow: 0 0 20px rgba(0, 71, 171, 0.3);
+        }
+
+        .search-suggestions {
+            margin-top: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .search-suggestions.show {
+            display: block;
+        }
+
+        .suggestion-item {
+            background: #f5f5f5;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        .suggestion-item:hover {
+            background: #0047AB;
+            color: white;
+        }
+
+        .nav-tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        .tab-btn {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .tab-btn:hover {
+            background: white;
+            color: #0047AB;
+        }
+
+        .tab-btn.active {
+            background: white;
+            color: #0047AB;
+        }
+
+        .result-screen {
+            display: none;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .result-screen.show {
+            display: block;
+        }
+
+        .back-button {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            width: 100%;
+        }
+
+        .back-button:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            animation: scaleInBounce 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .result-emoji {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .employee-name {
+            font-size: 2em;
             font-weight: 900;
-            background: linear-gradient(135deg, #d4af37, #f0e68c);
+            background: linear-gradient(135deg, #0047AB 0%, #00A8E8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin: 35px 0;
-            animation: scaleInBounce 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s both;
-            text-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
-            letter-spacing: 2px;
+            margin: 15px 0;
         }
 
-        .party-message {
-            font-size: 1.05em;
-            color: #d0d0d0;
-            line-height: 2;
-            margin: 35px 0;
-            animation: slideInLeft 1.2s ease-out 1s both;
-            font-weight: 300;
+        .table-number {
+            font-size: 3em;
+            font-weight: 900;
+            color: #0047AB;
+            margin: 20px 0;
         }
 
-        .divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #d4af37, #b8860b, transparent);
-            margin: 40px 0;
-            animation: scaleInWidth 0.8s ease-out 1.2s both;
-        }
-
-        .update-section {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
-            border-radius: 12px;
-            padding: 30px;
-            margin: 35px 0;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            animation: slideInUp 1.2s ease-out 1.4s both;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(212, 175, 55, 0.1);
-        }
-
-        .update-title {
-            font-size: 1.4em;
-            font-weight: 700;
-            color: #d4af37;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            letter-spacing: 1px;
-        }
-
-        .update-text {
-            font-size: 1.1em;
-            color: #d0d0d0;
-            font-weight: 400;
+        .table-members {
+            color: #666;
+            font-size: 0.9em;
             line-height: 1.8;
+            text-align: left;
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #0047AB 0%, #00A8E8 100%);
+            border-radius: 15px;
+            padding: 25px;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0, 71, 171, 0.3);
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        .info-box h3 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .info-item {
+            margin: 12px 0;
+            line-height: 1.8;
+            font-size: 0.95em;
+        }
+
+        .info-item strong {
+            color: #FFD700;
+        }
+
+        .rules-box {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E72 100%);
+            border-radius: 15px;
+            padding: 25px;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(255, 107, 107, 0.3);
+            animation: slideInUp 0.8s ease-out 0.3s both;
+        }
+
+        .rules-box h3 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .rules-item {
+            margin: 12px 0;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .rules-item::before {
+            content: '✓ ';
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .rules-item.warning::before {
+            content: '⚠️ ';
+        }
+
+        .location-box {
+            background: linear-gradient(135deg, #2ECC71 0%, #27AE60 100%);
+            border-radius: 15px;
+            padding: 25px;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(46, 204, 113, 0.3);
+            animation: slideInUp 0.8s ease-out 0.4s both;
+        }
+
+        .location-box h3 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .location-item {
+            margin: 12px 0;
+            line-height: 1.8;
+            font-size: 0.95em;
+        }
+
+        .location-link {
+            display: inline-block;
+            background: white;
+            color: #2ECC71;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .location-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .cakes {
             display: flex;
             justify-content: space-around;
-            margin: 40px 0;
+            margin: 30px 0;
             flex-wrap: wrap;
             gap: 15px;
         }
 
         .cake {
-            font-size: 4em;
-            animation: bounce 2.5s ease-in-out infinite;
-            filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.3));
+            font-size: 3em;
+            animation: bounce 2s infinite;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
         }
 
         .cake:nth-child(1) { animation-delay: 0s; }
         .cake:nth-child(2) { animation-delay: 0.3s; }
-        .cake:nth-child(3) { animation-delay: 0.6s; }
 
-        .photos-box-hidden {
-            opacity: 0;
-            transform: translateY(60px);
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        .photos-box-show {
-            animation: slideInUp 1.2s ease-out forwards !important;
-        }
-
-        .button-section {
-            margin-top: 50px;
-            display: grid;
-            gap: 15px;
-        }
-
-        .btn {
-            padding: 18px 40px;
-            font-size: 1.05em;
-            font-weight: 700;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            border: none;
-            letter-spacing: 1px;
-            animation: slideUpButton 1.2s ease-out 1.6s both;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.5s ease;
-            z-index: -1;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #d4af37 0%, #f0e68c 100%);
-            color: #1a1a1a;
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #d4af37;
-            border: 2px solid #d4af37;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(212, 175, 55, 0.1);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-        }
-
-        .btn:active {
-            transform: translateY(-2px);
-        }
-
-        .company-footer {
-            background: rgba(212, 175, 55, 0.08);
-            padding: 25px;
-            border-radius: 8px;
-            margin-top: 40px;
-            font-size: 0.95em;
-            color: #b8b8b8;
-            animation: fadeIn 1.2s ease-out 1.8s both;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            line-height: 1.8;
-        }
-
-        .company-footer strong {
-            color: #d4af37;
-            font-size: 1.05em;
-            letter-spacing: 1px;
-        }
-
-        .heart {
-            display: inline-block;
-            color: #ff6b6b;
-            font-size: 1.3em;
-            animation: heartbeat 1.2s infinite;
-            margin: 0 5px;
-        }
-
-        @keyframes slideUpCard {
+        @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(60px);
+                transform: translateY(-20px);
             }
             to {
                 opacity: 1;
@@ -347,7 +392,7 @@
             }
         }
 
-        @keyframes slideDownText {
+        @keyframes slideDownBig {
             from {
                 opacity: 0;
                 transform: translateY(-40px);
@@ -358,23 +403,7 @@
             }
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInUp {
+        @keyframes slideUpBig {
             from {
                 opacity: 0;
                 transform: translateY(40px);
@@ -385,10 +414,21 @@
             }
         }
 
-        @keyframes slideUpButton {
+        @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -403,52 +443,6 @@
             }
             50% {
                 opacity: 1;
-                transform: scale(1.15);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-25px); }
-        }
-
-        @keyframes scaleInWidth {
-            from {
-                opacity: 0;
-                transform: scaleX(0);
-            }
-            to {
-                opacity: 1;
-                transform: scaleX(1);
-            }
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            25% { transform: scale(1.3); }
-            50% { transform: scale(1); }
-        }
-
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background: #d4af37;
-            pointer-events: none;
-            animation: confettiFall 3s ease-in forwards;
-            z-index: 5;
-        }
-
-        @keyframes popupShow {
-            0% {
-                opacity: 0;
-                transform: scale(0.3);
-            }
-            50% {
-                opacity: 1;
                 transform: scale(1.1);
             }
             100% {
@@ -456,418 +450,292 @@
             }
         }
 
-        .popup {
+        @keyframes scaleInButton {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .confetti {
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(135deg, #d4af37 0%, #f0e68c 100%);
-            padding: 50px 40px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 20px 80px rgba(212, 175, 55, 0.5);
-            z-index: 1000;
-            animation: popupShow 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-            max-width: 400px;
-            color: #1a1a1a;
+            width: 10px;
+            height: 10px;
+            background: #0047AB;
+            pointer-events: none;
+            animation: confettiFall 3s ease-in forwards;
+            z-index: 5;
         }
 
-        .popup h2 {
-            font-size: 2em;
-            margin-bottom: 15px;
-            font-weight: 900;
-        }
-
-        .popup p {
-            font-size: 1.1em;
-            line-height: 1.8;
-            font-weight: 600;
-        }
-
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 999;
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        @media (max-width: 600px) {
-            .main-card {
-                padding: 40px 25px;
-                border-radius: 15px;
-            }
-
-            .thank-you {
-                font-size: 2.3em;
-                letter-spacing: 2px;
-            }
-
-            .coming-text {
-                font-size: 1.8em;
-                letter-spacing: 1px;
-            }
-
-            .emoji-large {
-                font-size: 4em;
-            }
-
-            .cakes {
-                gap: 10px;
-            }
-
-            .cake {
-                font-size: 3em;
-            }
-
-            .btn {
-                padding: 15px 20px;
-                font-size: 0.95em;
-                width: 100%;
-                letter-spacing: 0.5px;
-            }
-
-            .update-section {
-                padding: 20px;
-                margin: 25px 0;
-            }
-
-            .update-title {
-                font-size: 1.15em;
-                gap: 8px;
-            }
-
-            .update-text {
-                font-size: 0.95em;
-            }
-
-            .party-message {
-                font-size: 1em;
-                line-height: 1.7;
-            }
-
-            .subtitle {
-                font-size: 0.95em;
-                letter-spacing: 1px;
-            }
-
-            .company-footer {
-                padding: 18px;
-                font-size: 0.85em;
-            }
-
-            .company-footer strong {
-                font-size: 0.95em;
-            }
-
-            .decorative-line {
-                width: 40px;
-                margin-bottom: 15px;
-            }
-
-            .photos-box-hidden,
-            .photos-box-show {
-                padding: 20px !important;
-                margin: 25px 0 !important;
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
             }
         }
 
         @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-
-            .main-card {
-                padding: 30px 20px;
-                border-radius: 12px;
-            }
-
-            .thank-you {
+            .welcome-title {
                 font-size: 2em;
-                letter-spacing: 1px;
             }
 
-            .coming-text {
-                font-size: 1.5em;
-                margin: 20px 0;
+            .employee-name {
+                font-size: 1.8em;
             }
 
-            .emoji-large {
-                font-size: 3.5em;
-                margin-bottom: 15px;
-            }
-
-            .subtitle {
-                font-size: 0.9em;
-                margin-bottom: 20px;
-            }
-
-            .cake {
+            .table-number {
                 font-size: 2.5em;
             }
 
-            .btn {
-                padding: 12px 16px;
-                font-size: 0.9em;
+            .info-box, .rules-box, .location-box {
+                padding: 20px;
             }
 
-            .button-section {
-                margin-top: 30px;
-                gap: 10px;
-            }
-
-            .party-message {
-                font-size: 0.95em;
-                line-height: 1.6;
-                margin: 20px 0;
-            }
-
-            .divider {
-                margin: 25px 0;
-            }
-
-            .update-title {
-                font-size: 1.05em;
-            }
-
-            .update-text {
-                font-size: 0.9em;
-                line-height: 1.7;
-            }
-
-            .company-footer {
-                padding: 15px;
-                font-size: 0.8em;
-            }
-
-            .heart {
+            .info-box h3, .rules-box h3, .location-box h3 {
                 font-size: 1.1em;
             }
-        }
 
-        @media (min-width: 1024px) {
-            .main-card {
-                max-width: 600px;
-                padding: 80px 60px;
+            .nav-tabs {
+                grid-template-columns: 1fr;
             }
 
-            .thank-you {
-                font-size: 4em;
-            }
-
-            .coming-text {
-                font-size: 3.2em;
-            }
-
-            .cake {
-                font-size: 4.5em;
-            }
-
-            .btn {
-                padding: 20px 50px;
-                font-size: 1.15em;
-            }
-        }
-
-        /* Tablet specific */
-        @media (min-width: 601px) and (max-width: 1023px) {
-            .main-card {
-                padding: 60px 45px;
-                max-width: 550px;
-            }
-
-            .thank-you {
-                font-size: 3.2em;
-            }
-
-            .coming-text {
-                font-size: 2.5em;
-            }
-
-            .btn {
-                padding: 16px 40px;
-                font-size: 1.05em;
+            .tab-btn {
+                padding: 10px;
+                font-size: 0.85em;
             }
         }
     </style>
 </head>
 <body>
-    <div class="sparkles" id="sparklesContainer"></div>
-
     <div class="container">
-        <div class="main-card">
-            <div class="decorative-line"></div>
+        <!-- WELCOME SCREEN -->
+        <div class="welcome-screen" id="welcomeScreen">
+            <div class="welcome-emoji">🎉</div>
+            <h1 class="welcome-title">HAPPY NEW YEAR 2026!</h1>
+            <p class="welcome-subtitle">Employees Party Celebration</p>
+            <p style="color: white; margin-bottom: 30px; font-size: 0.95em;">🏢 METHUL LANKA APPARELS (PVT) LTD</p>
+            <button class="welcome-button" onclick="startParty()">Let's Go! 🚀</button>
+        </div>
 
-            <div class="emoji-large">🎉</div>
+        <!-- MAIN SCREEN -->
+        <div class="main-screen" id="mainScreen">
+            <div class="header">
+                <h1>🎊 Find Your Table</h1>
+                <p>Search your name to find your table</p>
+            </div>
 
-            <div class="decorative-line"></div>
+            <div class="search-box">
+                <label class="search-label">👤 Enter Your Name</label>
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Type your name..." 
+                    autocomplete="off"
+                    oninput="searchTable()"
+                >
+                <div class="search-suggestions" id="suggestions"></div>
+            </div>
 
-            <h1 class="thank-you">THANK YOU!</h1>
-
-            <p class="subtitle">FOR GRACING OUR CELEBRATION</p>
-
-            <div class="coming-text">FOR COMING! 🎂</div>
-
-            <p class="party-message">
-                We are profoundly grateful for your presence<br>
-                at our birthday celebration.<br>
-                Thank you for making this moment truly special.
-            </p>
+            <div class="nav-tabs">
+                <button class="tab-btn active" onclick="showTab('table')">📋 Table</button>
+                <button class="tab-btn" onclick="showTab('rules')">📝 Rules</button>
+                <button class="tab-btn" onclick="showTab('info')">ℹ️ Info</button>
+            </div>
 
             <div class="cakes">
-                <div class="cake">🍰</div>
-                <div class="cake">🎂</div>
-                <div class="cake">🧁</div>
+                <div class="cake">🎉</div>
+                <div class="cake">🎊</div>
             </div>
+        </div>
 
-            <div class="divider"></div>
+        <!-- RESULT SCREEN -->
+        <div class="result-screen" id="resultScreen">
+            <button class="back-button" onclick="goBack()">← Back to Search</button>
 
-            <div class="update-section">
-                <div class="update-title">
-                    ✨ STAY UPDATED
-                </div>
-                <div class="update-text">
-                    📸 Exclusive photographs coming soon<br>
-                    <span style="font-size: 0.95em; color: #b8b8b8; margin-top: 8px; display: block;">
-                        Follow us for the finest moments
-                    </span>
-                </div>
-            </div>
-
-            <div class="photos-box-hidden" id="photosBox" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.08) 100%); border-radius: 12px; padding: 30px; margin: 35px 0; border: 1px solid rgba(212, 175, 55, 0.3); backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(212, 175, 55, 0.1);">
-                <div style="font-size: 1.3em; font-weight: 700; color: #d4af37; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 12px; letter-spacing: 1px;">
-                    📷 PHOTOS WILL BE RELEASED SOON
-                </div>
-                <div style="font-size: 1.05em; color: #d0d0d0; font-weight: 400; line-height: 1.8;">
-                    🎥 High-quality moments captured<br>
-                    📁 Album updates coming<br>
-                    ⏰ Check back for the gallery<br>
-                    <span style="font-size: 0.95em; color: #b8b8b8; margin-top: 12px; display: block;">
-                        ✓ Get ready for amazing memories!
-                    </span>
+            <!-- TABLE TAB -->
+            <div id="tableTab" class="result-tab">
+                <div class="result-card">
+                    <div class="result-emoji">🎈</div>
+                    <div class="employee-name" id="resultName"></div>
+                    <div style="font-size: 1.1em; color: #666; margin-bottom: 15px;">Your Table Number:</div>
+                    <div class="table-number" id="resultTable"></div>
+                    <div class="table-members" id="resultMembers"></div>
                 </div>
             </div>
 
-            <p style="color: #808080; font-size: 0.95em; margin: 25px 0; letter-spacing: 1px;">
-                Celebrate gracefully & treasure every moment <span class="heart">❤️</span>
-            </p>
-
-            <div class="divider"></div>
-
-            <!-- EXTRA CONTENT SECTIONS FOR SCROLLING -->
-            <div style="background: rgba(212, 175, 55, 0.08); border-radius: 12px; padding: 25px; margin: 35px 0; border: 1px solid rgba(212, 175, 55, 0.2); animation: slideInUp 1.2s ease-out 1.6s both;">
-                <div style="font-size: 1.2em; font-weight: 700; color: #d4af37; margin-bottom: 12px;">🎂 EVENT HIGHLIGHTS</div>
-                <div style="font-size: 1em; color: #d0d0d0; line-height: 1.9;">
-                    ✓ Amazing celebration<br>
-                    ✓ Great company & friends<br>
-                    ✓ Delicious refreshments<br>
-                    ✓ Unforgettable memories
+            <!-- RULES TAB -->
+            <div id="rulesTab" class="result-tab" style="display: none;">
+                <div class="rules-box">
+                    <h3>📋 PARTY RULES & CODE OF CONDUCT</h3>
+                    <div class="rules-item">Enjoy the party responsibly with colleagues</div>
+                    <div class="rules-item">Respect everyone and be kind to all</div>
+                    <div class="rules-item">You can drink whatever you like responsibly</div>
+                    <div class="rules-item warning">NO fighting or arguments with anyone</div>
+                    <div class="rules-item warning">NO harassment or inappropriate behavior</div>
+                    <div class="rules-item">Follow management instructions</div>
+                    <div class="rules-item">Have fun and make wonderful memories! 🎉</div>
                 </div>
             </div>
 
-            <div style="background: rgba(212, 175, 55, 0.08); border-radius: 12px; padding: 25px; margin: 35px 0; border: 1px solid rgba(212, 175, 55, 0.2); animation: slideInUp 1.2s ease-out 1.7s both;">
-                <div style="font-size: 1.2em; font-weight: 700; color: #d4af37; margin-bottom: 12px;">🌟 SPECIAL THANKS</div>
-                <div style="font-size: 1em; color: #d0d0d0; line-height: 1.9;">
-                    Thank you to everyone who made this celebration special. Your presence meant the world to us!
+            <!-- INFO TAB -->
+            <div id="infoTab" class="result-tab" style="display: none;">
+                <div class="info-box">
+                    <h3>⏰ IMPORTANT TIMING</h3>
+                    <div class="info-item"><strong>7:45 AM</strong><br>All employees must arrive at METHUL LANKA APPARELS office</div>
+                    <div class="info-item"><strong>8:00 AM</strong><br>Special New Year Dhamma Ceremony starts</div>
+                    <div class="info-item"><strong>9:00 AM</strong><br>Breakfast/Lunch provided & departure to hotel</div>
                 </div>
-            </div>
 
-            <div class="button-section">
-                <button class="btn btn-secondary" onclick="viewPhotos()">📷 PHOTOS COMING SOON</button>
-            </div>
-
-            <div class="company-footer">
-                <strong>✦ METHUL LANKA APPARELS (PVT) LTD ✦</strong><br>
-                All Rights Reserved<br>
-                <em>With gratitude & warmest wishes</em>
+                <div class="location-box">
+                    <h3>🏨 HOTEL LOCATION</h3>
+                    <div class="location-item"><strong>Hotel:</strong> Deandra Bolgoda</div>
+                    <div class="location-item"><strong>Event:</strong> New Year 2026 Celebration</div>
+                    <a href="https://share.google/IA55mnPRg3jzLYEFS" target="_blank" class="location-link">📍 View on Google Maps</a>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Create sparkles
-        function createSparkles() {
-            const container = document.getElementById('sparklesContainer');
-            for (let i = 0; i < 30; i++) {
-                const sparkle = document.createElement('div');
-                sparkle.className = 'sparkle';
-                sparkle.style.left = Math.random() * 100 + '%';
-                sparkle.style.top = Math.random() * 100 + '%';
-                sparkle.style.animationDelay = Math.random() * 3 + 's';
-                container.appendChild(sparkle);
+        const tablesData = [
+            {
+                number: 15,
+                members: ["HIRUSHA BANDARA", "MESTIYAGE DON SHASHIN DULANJA MADURANGA", "MANIKKA BADATHURUGE HASHAN AKALANKA NIMALADASA", "D.K.D.Dilani Rupathunga", "PANAWENNAGE VINODYA HESHANI", "Hirimbura Gamage Madushanka Amarasekara", "Hewa Dewage Roshan Dharmasiri", "NAMBIKAL ARACHCHIGE DON LASITHA SAMEERA GUNASEKARA", "Palipana Rajapaksha Bandaralage Kasun Warnakula", "Mullagangoda Mohottalalage Rajitha Rukshan Dayarathna", "Thambavita Vidanalage Tharindu Brayan", "RATHNAYAKA MUDIYANSELAGE CHAMIKA PIYUMALI RATHNAYAKA"],
+                searchNames: ["hirusha", "hashan", "vinodya", "roshan", "kasun", "rajitha", "tharindu", "brayan", "chamika", "piyumali", "dulanja", "madushanka", "dharmasiri", "lasitha", "sameera", "nimaladasa"]
+            },
+            {
+                number: 16,
+                members: ["RANASINGHEGE MADHAVI DHANUSHKA RANASINGHE", "HEWA PEDIGE TASHIMA DILSHI", "GALAMUWE GABADA MOHOTTALAGE SAJITH DARSHANA", "Kariyapperuma Aranwala Ranaweera Dissanayaka Nimal", "Batugoda Rankoth Gedara Nishantha Pushpakumara", "Loku Wallage Idunil Shirantha", "Karunarathna Mudiyanselage Dayarathna", "Amarathunga Arachchige Sanjeewa", "Kananthage Nalaka Fernando", "Rathnayaka Mudiyanselage Priyantha Rathnayaka", "Gurubavilage Reji Vernon Fernando", "Pathirage Kumudu Sudarshana Perera"],
+                searchNames: ["madhavi", "tashima", "sajith", "nimal", "nishantha", "idunil", "sanjeewa", "nalaka", "priyantha", "reji", "vernon", "kumudu", "sudarshana", "dhanushka"]
+            },
+            {
+                number: 17,
+                members: ["Manikkuwahandi Ananda Kumarawardhana", "Egoda Gedara Pradeep Madhushan Senevirathna", "Wilegoda Mudalige Shashidu Shakila Krishantha", "Pagoda Arachchige Don Siri Lal", "Amarakon Thanthirilage Siriyalatha", "Galagama Arachchilage Gamini Hemantha Perera", "Wijesekara Pathirranage Ranji", "Mapitiyage Don Gilbert", "Udupiti Kankanamge Don Dulanja Imesh Nethmal", "Dissanayaka Mudiyanselage Lakshitha Prasanjana", "Kandan Dinoth"],
+                searchNames: ["ananda", "pradeep", "madhushan", "shakila", "siri lal", "gamini", "hemantha", "gilbert", "dulanja", "imesh", "lakshitha", "dinoth", "shashidu", "ranji"]
+            },
+            {
+                number: 19,
+                members: ["ROSHAN FAMILY"],
+                searchNames: ["roshan"]
             }
+        ];
+
+        let currentTab = 'table';
+
+        function startParty() {
+            document.getElementById('welcomeScreen').classList.add('hide');
+            document.getElementById('mainScreen').classList.add('show');
+            document.getElementById('searchInput').focus();
+            createConfetti();
         }
 
-        // Scroll animation for photos box
-        function handleScroll() {
-            const photosBox = document.getElementById('photosBox');
-            if (!photosBox) return;
+        let searchTimeout;
+
+        function searchTable() {
+            clearTimeout(searchTimeout);
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            const suggestionsDiv = document.getElementById('suggestions');
             
-            const rect = photosBox.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-            
-            console.log('Scroll detected - Box top:', rect.top, 'Window height:', windowHeight);
-            
-            if (rect.top < windowHeight * 0.9) {
-                if (!photosBox.classList.contains('photos-box-show')) {
-                    console.log('Showing photos box');
-                    photosBox.classList.remove('photos-box-hidden');
-                    photosBox.classList.add('photos-box-show');
+            if (searchTerm.length < 1) {
+                suggestionsDiv.classList.remove('show');
+                return;
+            }
+
+            searchTimeout = setTimeout(() => {
+                const allNames = [];
+                
+                tablesData.forEach(table => {
+                    table.searchNames.forEach(name => {
+                        allNames.push({ name, table: table.number, data: table });
+                    });
+                });
+
+                const suggestions = allNames.filter(item => 
+                    item.name.includes(searchTerm)
+                );
+
+                if (suggestions.length > 0) {
+                    showSuggestions(suggestions, searchTerm);
+                } else {
+                    suggestionsDiv.classList.remove('show');
                 }
-            }
+
+                if (searchTerm.length >= 2) {
+                    const exactMatch = allNames.find(item => item.name === searchTerm);
+                    if (exactMatch) {
+                        setTimeout(() => selectSuggestion(exactMatch), 100);
+                    }
+                }
+            }, 200);
         }
 
-        // Listen to scroll with throttle
-        let ticking = false;
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                window.requestAnimationFrame(handleScroll);
-                ticking = true;
-                setTimeout(() => ticking = false, 100);
-            }
-        });
-        
-        // Also trigger on page load
-        document.addEventListener('DOMContentLoaded', handleScroll);
-        setTimeout(handleScroll, 300);
+        function showSuggestions(suggestions, searchTerm) {
+            const suggestionsDiv = document.getElementById('suggestions');
+            suggestionsDiv.innerHTML = '';
+            
+            suggestions.slice(0, 8).forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'suggestion-item';
+                const displayName = item.name.charAt(0).toUpperCase() + item.name.slice(1);
+                div.textContent = displayName;
+                div.onclick = () => selectSuggestion(item);
+                suggestionsDiv.appendChild(div);
+            });
+            
+            suggestionsDiv.classList.add('show');
+        }
 
-        function findTable() {
-            window.location.href = './index.html';
+        function selectSuggestion(item) {
+            document.getElementById('searchInput').value = item.name.charAt(0).toUpperCase() + item.name.slice(1);
+            document.getElementById('suggestions').classList.remove('show');
+            showResult(item.data, item.name);
+        }
+
+        function showResult(table, name) {
+            document.getElementById('mainScreen').classList.remove('show');
+            document.getElementById('resultScreen').classList.add('show');
+
+            document.getElementById('resultName').textContent = name.toUpperCase();
+            document.getElementById('resultTable').textContent = table.number;
+            document.getElementById('resultMembers').innerHTML = table.members.map(m => `👤 ${m}`).join('<br>');
+
             createConfetti();
         }
 
-        function viewPhotos() {
-            // Create overlay
-            const overlay = document.createElement('div');
-            overlay.className = 'popup-overlay';
-            overlay.onclick = () => {
-                overlay.remove();
-                popup.remove();
-            };
-            document.body.appendChild(overlay);
+        function showTab(tabName) {
+            currentTab = tabName;
+            
+            // Hide all tabs
+            document.querySelectorAll('.result-tab').forEach(tab => tab.style.display = 'none');
+            
+            // Remove active class from buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected tab
+            if (tabName === 'table') document.getElementById('tableTab').style.display = 'block';
+            if (tabName === 'rules') document.getElementById('rulesTab').style.display = 'block';
+            if (tabName === 'info') document.getElementById('infoTab').style.display = 'block';
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
 
-            // Create popup
-            const popup = document.createElement('div');
-            popup.className = 'popup';
-            popup.innerHTML = `
-                <div style="font-size: 3em; margin-bottom: 15px;">📸</div>
-                <h2>Coming Soon!</h2>
-                <p>Exclusive photographs will be released soon</p>
-                <p style="margin-top: 20px; font-size: 0.95em;">Stay tuned for the finest moments!</p>
-            `;
-            popup.onclick = (e) => e.stopPropagation();
-            document.body.appendChild(popup);
-
-            createConfetti();
-
-            // Auto close after 3 seconds
-            setTimeout(() => {
-                if (overlay.parentNode) overlay.remove();
-                if (popup.parentNode) popup.remove();
-            }, 3000);
+        function goBack() {
+            document.getElementById('resultScreen').classList.remove('show');
+            document.getElementById('mainScreen').classList.add('show');
+            document.getElementById('searchInput').value = '';
+            document.getElementById('suggestions').classList.remove('show');
+            document.getElementById('searchInput').focus();
+            currentTab = 'table';
         }
 
         function createConfetti() {
@@ -876,19 +744,13 @@
                 confetti.className = 'confetti';
                 confetti.style.left = Math.random() * 100 + '%';
                 confetti.style.top = '-10px';
-                confetti.style.background = ['#d4af37', '#f0e68c', '#b8860b', '#ffd700'][Math.floor(Math.random() * 4)];
+                confetti.style.background = ['#0047AB', '#00A8E8', '#00D4FF', '#FFD700'][Math.floor(Math.random() * 4)];
                 confetti.style.delay = Math.random() * 0.5 + 's';
                 document.body.appendChild(confetti);
                 
                 setTimeout(() => confetti.remove(), 3500);
             }
         }
-
-        // Trigger on load
-        window.addEventListener('load', () => {
-            createSparkles();
-            createConfetti();
-        });
     </script>
 </body>
 </html>
