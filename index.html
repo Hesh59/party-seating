@@ -56,23 +56,40 @@
             animation: slideUpBig 1s ease-out 0.3s both;
         }
 
+        .welcome-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            animation: slideUp 0.8s ease-out 0.5s both;
+        }
+
         .welcome-button {
             background: white;
             color: #0047AB;
             border: none;
-            padding: 18px 40px;
-            font-size: 1.1em;
+            padding: 16px 24px;
+            font-size: 1em;
             font-weight: 700;
             border-radius: 50px;
             cursor: pointer;
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
-            animation: scaleInButton 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s both;
         }
 
         .welcome-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 60px rgba(0,0,0,0.3);
+        }
+
+        .welcome-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .welcome-button.secondary:hover {
+            background: white;
+            color: #0047AB;
         }
 
         /* MAIN SCREEN */
@@ -161,38 +178,40 @@
         .suggestion-item:hover {
             background: #0047AB;
             color: white;
+            transform: translateX(5px);
         }
 
-        .nav-tabs {
+        .quick-links {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
             animation: slideUp 0.8s ease-out 0.2s both;
         }
 
-        .tab-btn {
-            background: rgba(255,255,255,0.2);
+        .quick-btn {
+            background: rgba(255,255,255,0.15);
             border: 2px solid white;
             color: white;
-            padding: 12px;
-            border-radius: 12px;
+            padding: 18px;
+            border-radius: 15px;
             cursor: pointer;
             font-weight: 600;
+            font-size: 1em;
             transition: all 0.3s ease;
-            font-size: 0.9em;
         }
 
-        .tab-btn:hover {
+        .quick-btn:hover {
             background: white;
             color: #0047AB;
+            transform: translateY(-5px);
         }
 
-        .tab-btn.active {
-            background: white;
-            color: #0047AB;
+        .quick-btn:active {
+            transform: translateY(-2px);
         }
 
+        /* RESULT SCREEN */
         .result-screen {
             display: none;
             animation: fadeIn 0.8s ease-out;
@@ -218,6 +237,7 @@
 
         .back-button:hover {
             background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
         }
 
         .result-card {
@@ -265,6 +285,35 @@
             overflow-y: auto;
         }
 
+        .special-role-card {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+            animation: scaleInBounce 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            color: white;
+        }
+
+        .special-role-badge {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .special-role-title {
+            font-size: 2em;
+            font-weight: 900;
+            margin: 15px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .special-role-description {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+
         .info-box {
             background: linear-gradient(135deg, #0047AB 0%, #00A8E8 100%);
             border-radius: 15px;
@@ -272,12 +321,13 @@
             color: white;
             margin-bottom: 20px;
             box-shadow: 0 10px 40px rgba(0, 71, 171, 0.3);
-            animation: slideInUp 0.8s ease-out 0.2s both;
+            animation: slideInUp 0.8s ease-out 0.1s both;
         }
 
         .info-box h3 {
             font-size: 1.3em;
             margin-bottom: 15px;
+            font-weight: 700;
         }
 
         .info-item {
@@ -288,6 +338,7 @@
 
         .info-item strong {
             color: #FFD700;
+            font-size: 1.05em;
         }
 
         .rules-box {
@@ -297,12 +348,13 @@
             color: white;
             margin-bottom: 20px;
             box-shadow: 0 10px 40px rgba(255, 107, 107, 0.3);
-            animation: slideInUp 0.8s ease-out 0.3s both;
+            animation: slideInUp 0.8s ease-out 0.2s both;
         }
 
         .rules-box h3 {
             font-size: 1.3em;
             margin-bottom: 15px;
+            font-weight: 700;
         }
 
         .rules-item {
@@ -315,10 +367,12 @@
             content: '✓ ';
             font-weight: bold;
             margin-right: 8px;
+            color: #FFD700;
         }
 
         .rules-item.warning::before {
             content: '⚠️ ';
+            color: white;
         }
 
         .location-box {
@@ -328,12 +382,13 @@
             color: white;
             margin-bottom: 20px;
             box-shadow: 0 10px 40px rgba(46, 204, 113, 0.3);
-            animation: slideInUp 0.8s ease-out 0.4s both;
+            animation: slideInUp 0.8s ease-out 0.3s both;
         }
 
         .location-box h3 {
             font-size: 1.3em;
             margin-bottom: 15px;
+            font-weight: 700;
         }
 
         .location-item {
@@ -357,6 +412,34 @@
         .location-link:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%);
+            border-radius: 15px;
+            padding: 25px;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(156, 39, 176, 0.3);
+            animation: slideInUp 0.8s ease-out 0.4s both;
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .contact-box p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+
+        .contact-box strong {
+            color: #FFD700;
+            font-size: 1.1em;
         }
 
         .cakes {
@@ -450,17 +533,6 @@
             }
         }
 
-        @keyframes scaleInButton {
-            from {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
@@ -496,21 +568,20 @@
                 font-size: 2.5em;
             }
 
-            .info-box, .rules-box, .location-box {
+            .info-box, .rules-box, .location-box, .contact-box {
                 padding: 20px;
             }
 
-            .info-box h3, .rules-box h3, .location-box h3 {
+            .info-box h3, .rules-box h3, .location-box h3, .contact-box h3 {
                 font-size: 1.1em;
             }
 
-            .nav-tabs {
+            .welcome-buttons {
                 grid-template-columns: 1fr;
             }
 
-            .tab-btn {
-                padding: 10px;
-                font-size: 0.85em;
+            .quick-links {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -523,10 +594,14 @@
             <h1 class="welcome-title">HAPPY NEW YEAR 2026!</h1>
             <p class="welcome-subtitle">Employees Party Celebration</p>
             <p style="color: white; margin-bottom: 30px; font-size: 0.95em;">🏢 METHUL LANKA APPARELS (PVT) LTD</p>
-            <button class="welcome-button" onclick="startParty()">Let's Go! 🚀</button>
+            
+            <div class="welcome-buttons">
+                <button class="welcome-button" onclick="startParty()">Find Table 🎈</button>
+                <button class="welcome-button secondary" onclick="showInfo()">Info & Rules 📋</button>
+            </div>
         </div>
 
-        <!-- MAIN SCREEN -->
+        <!-- MAIN SCREEN - FIND TABLE -->
         <div class="main-screen" id="mainScreen">
             <div class="header">
                 <h1>🎊 Find Your Table</h1>
@@ -545,24 +620,23 @@
                 <div class="search-suggestions" id="suggestions"></div>
             </div>
 
-            <div class="nav-tabs">
-                <button class="tab-btn active" onclick="showTab('table')">📋 Table</button>
-                <button class="tab-btn" onclick="showTab('rules')">📝 Rules</button>
-                <button class="tab-btn" onclick="showTab('info')">ℹ️ Info</button>
-            </div>
-
             <div class="cakes">
                 <div class="cake">🎉</div>
                 <div class="cake">🎊</div>
             </div>
+
+            <div class="quick-links">
+                <button class="quick-btn" onclick="showInfo()">📋 Info & Rules</button>
+                <button class="quick-btn" onclick="goBack()" style="background: rgba(255,255,255,0.1);">🏠 Home</button>
+            </div>
         </div>
 
-        <!-- RESULT SCREEN -->
+        <!-- RESULT SCREEN - TABLE RESULT -->
         <div class="result-screen" id="resultScreen">
-            <button class="back-button" onclick="goBack()">← Back to Search</button>
+            <button class="back-button" onclick="goBack()">← Back</button>
 
-            <!-- TABLE TAB -->
-            <div id="tableTab" class="result-tab">
+            <!-- Normal Employee Result -->
+            <div id="tableResult" style="display: none;">
                 <div class="result-card">
                     <div class="result-emoji">🎈</div>
                     <div class="employee-name" id="resultName"></div>
@@ -572,35 +646,52 @@
                 </div>
             </div>
 
-            <!-- RULES TAB -->
-            <div id="rulesTab" class="result-tab" style="display: none;">
-                <div class="rules-box">
-                    <h3>📋 PARTY RULES & CODE OF CONDUCT</h3>
-                    <div class="rules-item">Enjoy the party responsibly with colleagues</div>
-                    <div class="rules-item">Respect everyone and be kind to all</div>
-                    <div class="rules-item">You can drink whatever you like responsibly</div>
-                    <div class="rules-item warning">NO fighting or arguments with anyone</div>
-                    <div class="rules-item warning">NO harassment or inappropriate behavior</div>
-                    <div class="rules-item">Follow management instructions</div>
-                    <div class="rules-item">Have fun and make wonderful memories! 🎉</div>
+            <!-- Special Role Result -->
+            <div id="specialRoleResult" style="display: none;">
+                <div class="special-role-card">
+                    <div class="special-role-badge" id="specialEmoji"></div>
+                    <div class="employee-name" id="specialName" style="color: white;"></div>
+                    <div class="special-role-title" id="specialTitle"></div>
+                    <div class="special-role-description" id="specialDescription"></div>
                 </div>
             </div>
+        </div>
 
-            <!-- INFO TAB -->
-            <div id="infoTab" class="result-tab" style="display: none;">
-                <div class="info-box">
-                    <h3>⏰ IMPORTANT TIMING</h3>
-                    <div class="info-item"><strong>7:45 AM</strong><br>All employees must arrive at METHUL LANKA APPARELS office</div>
-                    <div class="info-item"><strong>8:00 AM</strong><br>Special New Year Dhamma Ceremony starts</div>
-                    <div class="info-item"><strong>9:00 AM</strong><br>Breakfast/Lunch provided & departure to hotel</div>
-                </div>
+        <!-- INFO SCREEN -->
+        <div class="result-screen" id="infoScreen">
+            <button class="back-button" onclick="goBack()">← Back</button>
 
-                <div class="location-box">
-                    <h3>🏨 HOTEL LOCATION</h3>
-                    <div class="location-item"><strong>Hotel:</strong> Deandra Bolgoda</div>
-                    <div class="location-item"><strong>Event:</strong> New Year 2026 Celebration</div>
-                    <a href="https://share.google/IA55mnPRg3jzLYEFS" target="_blank" class="location-link">📍 View on Google Maps</a>
-                </div>
+            <div class="info-box">
+                <h3>⏰ IMPORTANT TIMING</h3>
+                <div class="info-item"><strong>7:45 AM</strong><br>All employees must arrive at METHUL LANKA APPARELS office</div>
+                <div class="info-item"><strong>8:00 AM</strong><br>Special New Year Dhamma Ceremony starts</div>
+                <div class="info-item"><strong>9:00 AM</strong><br>Breakfast/Lunch provided & departure to hotel</div>
+            </div>
+
+            <div class="rules-box">
+                <h3>📋 PARTY RULES & CODE OF CONDUCT</h3>
+                <div class="rules-item">Enjoy the party responsibly with all colleagues</div>
+                <div class="rules-item">Respect everyone and treat with dignity</div>
+                <div class="rules-item">You can enjoy drinks responsibly</div>
+                <div class="rules-item warning">NO fighting or arguments with anyone</div>
+                <div class="rules-item warning">NO harassment or inappropriate behavior</div>
+                <div class="rules-item warning">NO disrespecting colleagues or management</div>
+                <div class="rules-item">Follow all management instructions</div>
+                <div class="rules-item">Make wonderful memories! 🎉</div>
+            </div>
+
+            <div class="location-box">
+                <h3>🏨 HOTEL LOCATION</h3>
+                <div class="location-item"><strong>Hotel:</strong> Deandra Bolgoda</div>
+                <div class="location-item"><strong>Event:</strong> New Year 2026 Celebration</div>
+                <a href="https://share.google/IA55mnPRg3jzLYEFS" target="_blank" class="location-link">📍 View on Google Maps</a>
+            </div>
+
+            <div class="contact-box">
+                <h3>❓ HAVE QUESTIONS?</h3>
+                <p>If you have any issues or concerns</p>
+                <p><strong>Contact HR & ADMIN</strong></p>
+                <p style="font-size: 0.9em; margin-top: 10px;">We're here to help! 💙</p>
             </div>
         </div>
     </div>
@@ -614,7 +705,7 @@
             },
             {
                 number: 16,
-                members: ["RANASINGHEGE MADHAVI DHANUSHKA RANASINGHE", "HEWA PEDIGE TASHIMA DILSHI", "GALAMUWE GABADA MOHOTTALAGE SAJITH DARSHANA", "Kariyapperuma Aranwala Ranaweera Dissanayaka Nimal", "Batugoda Rankoth Gedara Nishantha Pushpakumara", "Loku Wallage Idunil Shirantha", "Karunarathna Mudiyanselage Dayarathna", "Amarathunga Arachchige Sanjeewa", "Kananthage Nalaka Fernando", "Rathnayaka Mudiyanselage Priyantha Rathnayaka", "Gurubavilage Reji Vernon Fernando", "Pathirage Kumudu Sudarshana Perera"],
+                members: ["RANASINGHEGE MADHAVI DHANUSHKA RANASINGHE", "HEWA PEDIGE TASHIMA DILSHI", "GALAMUWE GABADA MOHOTTALAGE SAJITH DARSHANA", "Kariyapperuma Aranwala Ranaweera Dissanayaka Nimal", "Batugoda Rankoth Gedara Nishantha Pushpakumara", "Loku Wallage IDUNIL SHIRANTHA", "Karunarathna Mudiyanselage Dayarathna", "Amarathunga Arachchige Sanjeewa", "Kananthage Nalaka Fernando", "Rathnayaka Mudiyanselage Priyantha Rathnayaka", "Gurubavilage Reji Vernon Fernando", "Pathirage Kumudu Sudarshana Perera"],
                 searchNames: ["madhavi", "tashima", "sajith", "nimal", "nishantha", "idunil", "sanjeewa", "nalaka", "priyantha", "reji", "vernon", "kumudu", "sudarshana", "dhanushka"]
             },
             {
@@ -629,12 +720,27 @@
             }
         ];
 
-        let currentTab = 'table';
+        const specialRoles = [
+            {
+                name: "ananda",
+                displayName: "Ananda Kumarawardhana",
+                role: "🍸 BAR ADMIN",
+                description: "Responsible for Bar Management & Beverages\n\nEnsure responsible drink service and maintain bar area"
+            }
+        ];
 
         function startParty() {
             document.getElementById('welcomeScreen').classList.add('hide');
             document.getElementById('mainScreen').classList.add('show');
             document.getElementById('searchInput').focus();
+            createConfetti();
+        }
+
+        function showInfo() {
+            document.getElementById('welcomeScreen').classList.add('hide');
+            document.getElementById('mainScreen').classList.remove('show');
+            document.getElementById('resultScreen').classList.remove('show');
+            document.getElementById('infoScreen').classList.add('show');
             createConfetti();
         }
 
@@ -653,10 +759,16 @@
             searchTimeout = setTimeout(() => {
                 const allNames = [];
                 
+                // Regular employees
                 tablesData.forEach(table => {
                     table.searchNames.forEach(name => {
-                        allNames.push({ name, table: table.number, data: table });
+                        allNames.push({ name, table: table.number, data: table, type: 'employee' });
                     });
+                });
+
+                // Special roles
+                specialRoles.forEach(role => {
+                    allNames.push({ name: role.name, type: 'special', data: role });
                 });
 
                 const suggestions = allNames.filter(item => 
@@ -664,7 +776,7 @@
                 );
 
                 if (suggestions.length > 0) {
-                    showSuggestions(suggestions, searchTerm);
+                    showSuggestions(suggestions);
                 } else {
                     suggestionsDiv.classList.remove('show');
                 }
@@ -678,7 +790,7 @@
             }, 200);
         }
 
-        function showSuggestions(suggestions, searchTerm) {
+        function showSuggestions(suggestions) {
             const suggestionsDiv = document.getElementById('suggestions');
             suggestionsDiv.innerHTML = '';
             
@@ -695,14 +807,24 @@
         }
 
         function selectSuggestion(item) {
-            document.getElementById('searchInput').value = item.name.charAt(0).toUpperCase() + item.name.slice(1);
+            const displayName = item.name.charAt(0).toUpperCase() + item.name.slice(1);
+            document.getElementById('searchInput').value = displayName;
             document.getElementById('suggestions').classList.remove('show');
-            showResult(item.data, item.name);
+            
+            if (item.type === 'employee') {
+                showTableResult(item.data, item.name);
+            } else if (item.type === 'special') {
+                showSpecialRoleResult(item.data);
+            }
         }
 
-        function showResult(table, name) {
+        function showTableResult(table, name) {
             document.getElementById('mainScreen').classList.remove('show');
+            document.getElementById('infoScreen').classList.remove('show');
             document.getElementById('resultScreen').classList.add('show');
+
+            document.getElementById('tableResult').style.display = 'block';
+            document.getElementById('specialRoleResult').style.display = 'none';
 
             document.getElementById('resultName').textContent = name.toUpperCase();
             document.getElementById('resultTable').textContent = table.number;
@@ -711,31 +833,29 @@
             createConfetti();
         }
 
-        function showTab(tabName) {
-            currentTab = tabName;
-            
-            // Hide all tabs
-            document.querySelectorAll('.result-tab').forEach(tab => tab.style.display = 'none');
-            
-            // Remove active class from buttons
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            
-            // Show selected tab
-            if (tabName === 'table') document.getElementById('tableTab').style.display = 'block';
-            if (tabName === 'rules') document.getElementById('rulesTab').style.display = 'block';
-            if (tabName === 'info') document.getElementById('infoTab').style.display = 'block';
-            
-            // Add active class to clicked button
-            event.target.classList.add('active');
+        function showSpecialRoleResult(role) {
+            document.getElementById('mainScreen').classList.remove('show');
+            document.getElementById('infoScreen').classList.remove('show');
+            document.getElementById('resultScreen').classList.add('show');
+
+            document.getElementById('tableResult').style.display = 'none';
+            document.getElementById('specialRoleResult').style.display = 'block';
+
+            document.getElementById('specialName').textContent = role.displayName.toUpperCase();
+            document.getElementById('specialTitle').textContent = role.role;
+            document.getElementById('specialDescription').textContent = role.description;
+            document.getElementById('specialEmoji').textContent = '⭐';
+
+            createConfetti();
         }
 
         function goBack() {
+            document.getElementById('mainScreen').classList.remove('show');
             document.getElementById('resultScreen').classList.remove('show');
-            document.getElementById('mainScreen').classList.add('show');
+            document.getElementById('infoScreen').classList.remove('show');
+            document.getElementById('welcomeScreen').classList.remove('hide');
             document.getElementById('searchInput').value = '';
             document.getElementById('suggestions').classList.remove('show');
-            document.getElementById('searchInput').focus();
-            currentTab = 'table';
         }
 
         function createConfetti() {
